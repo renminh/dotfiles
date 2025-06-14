@@ -54,7 +54,7 @@ if [ "$copy_settings" == "yes" ]; then
 
     if [ -f "$CONF_EXTRA_FILE" ]; then
         echo "Appending aditional git config from my settings..."
-        cat "$CONF_EXTRA_FILE" >> "git/config"
+        cat "$CONF_EXTRA_FILE" >> "$output_config"
     else
         echo "[WARN] Custom settings file not found in git directory"
     fi
