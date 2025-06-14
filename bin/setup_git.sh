@@ -66,7 +66,7 @@ rm -f ~/.gitconfig
 
 # move gitconfig to xdg config directory
 mkdir -p ~/.config/git
-cp git/config ~/.config/git/
+cp dots/git/config ~/.config/git/
 echo "Moved gitconfig to ~/.config/git/config"
 
 echo "[FINISH] Done."
