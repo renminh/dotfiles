@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # ensure curl is installed
 if ! command -v curl &> /dev/null; then
     echo "[ERROR] Curl is not installed. It is required for this script!"
