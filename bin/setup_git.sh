@@ -21,13 +21,13 @@ if [ "$copy_settings" == "Y" ] || [ "$copy_settings" == "y" ]; then copy_setting
 # show summary
 echo ""
 echo "Preparing git config for:"
-echo "* Github email: $git_email"
-echo "* Github name: $git_name"
+echo "* Email: $git_email"
+echo "* Name: $git_name"
 
 if [ "$copy_settings" == "yes" ]; then
-    echo "* Copy settings?: Yes"
+    echo "* Copy custom settings?: Yes"
 else
-    echo "* Copy settings?: No"
+    echo "* Copy custom settings?: No"
 fi
 
 echo ""
@@ -38,10 +38,9 @@ if [ -n "$do_it" ] && [ "$do_it" != "y" ] && [ "$do_it" != "Y" ]; then
 fi
 
 
-# [ OUTPUT ] 
-
 # create config file
-cat > "git/config" <<EOF
+output_config="dots/git/config"
+cat > "$output_config" <<EOF
 [user]
    email = $git_email
    name = $git_name
@@ -51,7 +50,7 @@ EOF
 
 # copy over settings to gitconfig
 if [ "$copy_settings" == "yes" ]; then
-    CONF_EXTRA_FILE="git/config_extra"
+    CONF_EXTRA_FILE="dots/git/config_extra"
 
     if [ -f "$CONF_EXTRA_FILE" ]; then
         echo "Appending aditional git config from my settings..."
